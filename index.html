@@ -11,7 +11,81 @@
     <script src="themes/js/jquery.mobile-1.4.5.min.js"></script>
 
     <script type="text/javascript" src="themes/js/dan.js"></script>
+   <style>
+   body{padding:0;margin:0}
+.ui-body-c, .ui-overlay-c {
+  background: linear-gradient(#f9f9f9, #eee) repeat scroll 0 0 #f9f9f9;
+  border: 1px solid #aaa;
+  color: #333;
+  text-shadow: 0 1px 0 #fff;
+}
+
+
+.ui-header .ui-title, .ui-footer .ui-title {
+  display: block;
+  font-size: 16px;
+  margin: 0.8em 30%;
+  min-height: 1.1em;
+  outline: 0 none !important;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ui-bar-a {
+  background: linear-gradient(#6eb43f, #6eb43f) repeat scroll 0 0 #6eb43f;
+  border: 1px solid #333;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 -1px 0 #000;
+}
+.ui-footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+.ui-footer .ui-title {
+  margin: 0.6em 15px 0.8em;
+}
+.ui-icon {
+  background-repeat: no-repeat;
+  display: block;
+  overflow: hidden;
+  text-indent: -99999px;
+}
+.ui-loader .ui-icon {
+  background-color: #000;
+  border-radius: 36px;
+  display: block;
+  height: 44px;
+  margin: 0;
+  padding: 1px;
+  width: 44px;
+}
+.ui-icon-loading {
+  background: url("jax-loader.gif") repeat scroll 0 0 / 46px 46px rgba(0, 0, 0, 0);
+}
+
+
+.ui-loader {
+  border: 0 none;
+  display: block;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  z-index: 9999999;
+}
+.ui-loader-default {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  height: 46px;
+  margin-left: -23px;
+  margin-top: -23px;
+  opacity: 0.18;
+  width: 46px;
+}
    
+   </style>
 </head>
 <body>
     <div class="container">
