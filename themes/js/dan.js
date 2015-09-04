@@ -9,7 +9,7 @@ $( document ).bind( "mobileinit", function() {
 $(document).on("pageshow", "#landing", function () { // When entering pagetwo
  showLoader();
 setTimeout(function(){
-	  //window.location = $('#RootUrl').val();
+	  window.location = $('#RootUrl').val();
 	
  }, 1000);
 });
