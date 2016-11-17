@@ -205,7 +205,7 @@ $('#getbalance').off('click').on('click', function() {
             alert("PIN must be at least 4 characters.");
             return false;
         }
-        alert($('#RegisterPhone').val().length);
+       
         if ($('#RegisterPhone').val().length < 12) {
             alert("Please enter phone number in the format 254722000111.");
             return false;
@@ -228,8 +228,7 @@ $('#getbalance').off('click').on('click', function() {
                 } else {
                     $("#USERID").val(data.trim());
                     $('#USERPHONE').val($('#PhoneNumber').val());
-                    $("#Dialog1").html("Registration successful.");
-                    $("#Dialog1").dialog("open");
+                   $('.registration-success').show();
                    // $('#lnkTovalidate').trigger('click');
                     //$('#lnkLogin').trigger('click');
                     $.mobile.changePage('#login', {type: "get", transition: "slide"});
@@ -237,7 +236,7 @@ $('#getbalance').off('click').on('click', function() {
 
                 hideLoader();
 			}).fail(function(data) {
-				$( "#ErrorDialog" ).html('An Error has occured.<br>Phone number already registered');
+				$( "#ErrorDialog" ).html('Failed to submit your request. Check your internet connection');
 			     $( "#ErrorDialog" ).dialog("open");
 			}).always(function() {
 				hideLoader();
