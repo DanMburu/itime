@@ -15,7 +15,9 @@
         Daniel Mburu
     </author>
     
-    <access origin="*" />
+   <access origin="*" />
+   <allow-intent href="*" />
+   <allow-navigation href="*" />
 	
 	
 	<feature name="http://api.phonegap.com/1.0/network"/>
@@ -33,7 +35,7 @@
     <icon src="themes/images/icon-48.png"   gap:platform="android"    gap:density="mdpi" />
     <icon src="themes/images/icon-72.png"   gap:platform="android"    gap:density="hdpi" />
     <icon src="themes/images/icon-96.png"  gap:platform="android"    gap:density="xhdpi" />
-
+    <gap:plugin name="cordova-plugin-whitelist" source="npm" />
 	<gap:plugin name="org.apache.cordova.inappbrowser" />
 
 </widget>
