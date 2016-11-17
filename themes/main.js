@@ -154,8 +154,8 @@ $('#getbalance').off('click').on('click', function() {
                   $('#lnkhome').trigger('click');
               }
               hideLoader();
-          }).fail(function() {
-              alert("Check your internet connection.");
+          }).fail(function(error) {
+              alert("Check your internet connection."+JSON.stringify(error));
           }).always(function() {
               hideLoader();
           });
