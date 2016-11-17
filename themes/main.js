@@ -87,12 +87,10 @@ if (phone != null) {
       var url = $('#ROOTURL').val() + 'User/ResetPassword/' + phone +'/';
       $.get(url, function(data) {
         if (data.trim().indexOf("error") == -1){
-           $( "#Dialog1" ).html(data);
-           $( "#Dialog1" ).dialog("open");
+           alert(data);     
         }else{
-           $( "#ErrorDialog" ).html("Error generating the pin. That phone number may not be registered with us.");
-           $( "#ErrorDialog" ).dialog("open");
-        }
+          alert("Error generating the pin. That phone number may not be registered with us.");
+      }
         hideLoader();
       }).fail(function(data) {
          $( "#ErrorDialog" ).html("Failed to send your request. Check your internet connection.");
