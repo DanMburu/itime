@@ -46,8 +46,9 @@ $(document).on("pageshow", function () {
         var data = $('#frm-sell-credit').serialize();
         $.post(url, data).done(function(data) {
 				if (data.trim().indexOf("Sorry") == -1){
-				   $( "#Dialog1" ).html(data);
-				   $("#Dialog1").dialog("open");
+				   //$( "#Dialog1" ).html(data);
+				 //  $("#Dialog1").dialog("open");
+            alert(data);
 				   $('#frm-sell-credit')[0].reset();
 				   
 				}else{
@@ -127,8 +128,9 @@ $('#getbalance').off('click').on('click', function() {
 
     var url = $('#ROOTURL').val() + 'Balance/'+$('#USERID').val();
 			$.get(url, function(data) {
-			   $( "#Dialog1" ).html(data);
-			   $( "#Dialog1" ).dialog("open");
+        alert(data);
+			  // $( "#Dialog1" ).html(data);
+			  // $( "#Dialog1" ).dialog("open");
 				hideLoader();
 			}).fail(function() {
 				alert("Check your internet connection.");
