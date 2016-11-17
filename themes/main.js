@@ -19,6 +19,7 @@ $(document).on("pageshow", function () {
  
 
  $('#topupbtn').off('click').on('click', function() {
+
 	 var r = confirm("Topup your account with Ksh "+$('#txtTopupAmount').val());
     if (r == true) {
         showLoader();
@@ -38,7 +39,16 @@ $(document).on("pageshow", function () {
 	
 	
 	$('#sellcredit').off('click').on('click', function() {
-    var r = confirm("Buy airtime for  "+$('#txtSellPhone').val()+" Ksh "+$('#txtSellAmount').val());
+   
+  if ($('#txtSellPhone').val().length < 9) {
+      alert("Please enter phone number in the format 722000111.");
+      return false;
+  }
+ if ($('#txtSellAmount').val().length < 2) {
+      alert("Minimun allowed credit is Ksh 10");
+      return false;
+  }
+    var r = confirm("Buy airtime for  "+$('#txtSellPhone').val()+", Ksh "+$('#txtSellAmount').val());
     if (r == true) {
       
 			showLoader();
@@ -193,6 +203,11 @@ $('#getbalance').off('click').on('click', function() {
         }
         if ($('#txtpin').val().length < 4) {
             alert("PIN must be at least 4 characters.");
+            return false;
+        }
+        alert($('#RegisterPhone').val().length);
+        if ($('#RegisterPhone').val().length < 12) {
+            alert("Please enter phone number in the format 254722000111.");
             return false;
         }
 		var allFilled = true;
