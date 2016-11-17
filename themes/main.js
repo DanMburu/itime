@@ -77,30 +77,33 @@ $(document).on("pageshow", function () {
 	
 	$('#forgotpin').off('click').on('click', function() {
 		
-		if($('#LoginPhone').val()===''){
-			alert('Enter your phone number in the field above.');
-			return false;
-		}
-		 var r = confirm("Generate a new PIN?");
+		
+var phone = prompt("Enter your phone number");
+
+if (phone != null) {
+    var r = confirm("Generate a new PIN?");
     if (r == true) {
-			showLoader();
-			var url = $('#ROOTURL').val() + 'User/ResetPassword/' + $('#USERID').val()+'/';
-			$.get(url, function(data) {
-				if (data.trim().indexOf("error") == -1){
-				   $( "#Dialog1" ).html(data);
-				   $( "#Dialog1" ).dialog("open");
-				}else{
-					 $( "#ErrorDialog" ).html("Error generating the pin. That phone number may not be registered with us.");
-			     $( "#ErrorDialog" ).dialog("open");
-				}
-				hideLoader();
-			}).fail(function(data) {
-				 $( "#ErrorDialog" ).html("Error generating the pin. That phone number may not be registered with us.");
-			     $( "#ErrorDialog" ).dialog("open");
-			}).always(function() {
-				hideLoader();
-			});
-	}
+      showLoader();
+      var url = $('#ROOTURL').val() + 'User/ResetPassword/' + phone +'/';
+      $.get(url, function(data) {
+        if (data.trim().indexOf("error") == -1){
+           $( "#Dialog1" ).html(data);
+           $( "#Dialog1" ).dialog("open");
+        }else{
+           $( "#ErrorDialog" ).html("Error generating the pin. That phone number may not be registered with us.");
+           $( "#ErrorDialog" ).dialog("open");
+        }
+        hideLoader();
+      }).fail(function(data) {
+         $( "#ErrorDialog" ).html("Failed to send your request. Check your internet connection.");
+           $( "#ErrorDialog" ).dialog("open");
+      }).always(function() {
+        hideLoader();
+      });
+  }
+}
+
+		
     });
 	$('#changepin').off('click').on('click', function() {
 		if ($('#txtcurrentpin').val().length < 4) {
