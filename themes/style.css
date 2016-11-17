@@ -96,3 +96,26 @@
     padding-left: 30px;
 }
 #topup li{ font-size: 14px;padding-left: 10px}
+
+
+.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
+	background-color: #6eb43f;
+	border-color: #6eb43f;
+	color: #fff;
+	text-shadow: 0 1px 0 #eee;
+	
+}
+.ui-page-theme-a a, html .ui-bar-a a, html .ui-body-a a, html body .ui-group-theme-a a {
+	color: #6eb43f;
+	font-weight: 700;
+}
+#login a {
+  color: #6eb43f !important;
+}
+#lnkLogin {
+	margin-top: 20px;
+}
+.ui-btn-icon-left::after, .ui-btn-icon-right::after, .ui-btn-icon-top::after, .ui-btn-icon-bottom::after, .ui-btn-icon-notext::after {
+	background-color: #666;
+	background-color: #6EB43F;
+}

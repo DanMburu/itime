@@ -5,8 +5,19 @@ $(document).on("pageshow", "#landing", function () { // When entering pagetwo
     }, 1000);
 });
 
+
+
+$(document).on("pagebeforeshow", function () {
+   if($('#LOGGEDIN').val()=='no' && $.mobile.activePage.attr('id')!=='register'){
+
+     $.mobile.changePage('#login', {type: "get", transition: "slide"});
+  }
+   });
+
 $(document).on("pageshow", function () {
-   
+  
+ 
+
  $('#topupbtn').off('click').on('click', function() {
 	 var r = confirm("Topup your account with Ksh "+$('#txtTopupAmount').val());
     if (r == true) {
@@ -125,7 +136,11 @@ $('#getbalance').off('click').on('click', function() {
 				hideLoader();
 			});
     });
-  
+   $('#lnkOut').off('click').on('click', function() {
+       $('#LOGGEDIN').val('no');
+        $.mobile.changePage('#login', {type: "get", transition: "slide"});
+    }); 
+
   $('#lnkLogin').off('click').on('click', function() {
      
       var allFilled = true;
@@ -152,7 +167,10 @@ $('#getbalance').off('click').on('click', function() {
 					$('#lnkTovalidate').trigger('click');
 				}else {
                   $(".userId").val(data.trim());
-                  $('#lnkhome').trigger('click');
+                  $('#LOGGEDIN').val('yes');
+                   $.mobile.changePage('#home', {type: "get", transition: "slide"});
+                 
+                  
               }
               hideLoader();
           }).fail(function(error) {
