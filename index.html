@@ -1,38 +1,224 @@
-<!DOCTYPE html>
 <html>
-<head runat="server">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>iTime</title>
-    <link rel="stylesheet" href="themes/css/bootstrap.min.css" />
-
-	<link rel="stylesheet" href="themes/css/mobileapp.css" />
-    <script src="themes/js/jquery-1.11.1.min.js"></script>
-    <script src="themes/js/jquery.mobile-1.4.5.min.js"></script>
-
-    <script type="text/javascript" src="themes/js/dan.js"></script>
-   
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="themes/jquery.mobile-1.3.0.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="themes/style.css">
+    <link href="themes/jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+    <!--<link href="jQueryAssets/jquery.ui.theme.css" rel="stylesheet" type="text/css">-->
+    <link href="themes/jQueryAssets/jquery.ui.dialog.min.css" rel="stylesheet" type="text/css">
+    <link href="themes/jQueryAssets/jquery.ui.resizable.min.css" rel="stylesheet" type="text/css">
+    <script src="themes/jquery-2.2.3.min.js" type="text/javascript"></script>
+    <script src="themes/jquery.mobile-1.3.0.min.js" type="text/javascript"></script>
+    <script src="themes/jQueryAssets/jquery-ui-1.9.2.dialog.custom.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="themes/main.js"></script>
 </head>
 <body>
-    <div class="container">
 
-         <div id="landing" class="login-register" data-role="page">
-         <div data-role="header" class="ui-header ui-bar-a" role="banner">
-		    <h1 class="ui-title" role="heading" aria-level="1">Loading...</h1>
-	     </div>
-         <div data-role="content">
-         <a data-ajax="false" data-role="button" data-icon="search" href="http://itime.kendevs.com/mobile/server/">Load</a>
-		 </div>
-         
-		 <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo">
-		    <h4 class="ui-title" role="heading" aria-level="1">iTime</h4>
-	      </div>
-        
-         <input type="hidden"  value="http://itime.kendevs.com/mobile/server/" ID="RootUrl" />
-         
-         <input type="hidden"  ID="SUBSCRIBER" />
-        
+    <input type="hidden" class="userId" id="USERID" value="" />
+<!--<input type="hidden" id="ROOTURL" value="http://localhost:1875/api/"/>-->
+    <input type="hidden" id="ROOTURL" value="http://itime.kendevs.com/MobileApi/api/" />
+    <input type="hidden"  id="USERPHONE" value="" />
+<div id="landing" class="login-register" data-role="page">
+   
 
-    </div> 
+    <div data-role="header" class="ui-header ui-bar-a" role="banner">
+        <h1 class="ui-title" role="heading" aria-level="1">Loading...</h1>
+    </div>
+    <a href="#login" data-transition="slide" class="lnkLogin"></a>
+    <div data-role="footer" class="ui-footer ui-bar-a" role="contentinfo">
+        <h4 class="ui-title" role="heading" aria-level="1">iTime</h4>
+    </div>
+</div>
+
+<div data-role="page" id="login">
+    <div data-role="header">
+        <h1>Login</h1>
+    </div>
+    <div data-role="content">
+        <form id="frm-login">
+            <div data-role="fieldcontain">
+                <label for="passwordinput">Phone No</label>
+                <input type="text" name="PhoneNumber" id="LoginPhone" value=""/>
+
+                <label style="margin-top: 15px" for="passwordinput">Enter your 4 Digit Pin:</label>
+                <input type="password" name="Password" id="passwordinput" value=""/>
+                <a href="#" id="lnkLogin" data-transition="slide" data-role="button" data-icon="arrow-r">Enter</a>
+                <a href="#home" data-role="none" id="lnkhome" data-transition="slide" data-role="button" data-icon="arrow-r"></a>
+            </div>
+            <br>
+            <a href="#" style="float: left" id="forgotpin" data-transition="slide" data-icon="star">Forgot Pin?</a>
+            <a href="#register" style="float: right" data-transition="slide" data-icon="star">Register</a>
+        </form>
+    </div>
+    <div data-role="footer">
+        <h4>iTime</h4>
+    </div>
+</div>
+
+
+<div data-role="page" id="home">
+    <div data-role="header">
+        <h1>Home</h1>
+    </div>
+
+
+
+    <ul data-role="listview">
+        <li><a href="#sell" data-transition="slide">Sell Credit</a><a href="#sell">Default</a></li>
+        <li><a href="#topup" data-transition="slide">Top Up</a><a href="#topup">Default</a></li>
+    </ul>
+
+    <ul data-role="listview" data-split-icon="info">
+        <li><a href="#" id="getbalance" data-transition="slide">Balance</a><a id="getbalance" href="#">Balance</a></li>
+
+    </ul>
+    <ul data-role="listview" data-split-icon="gear">
+        <li><a href="#change-pin" data-transition="slide">Change Pin</a><a href="#change-pin"></a></li>
+
+    </ul>
+
+
+
+    <ul data-role="listview" data-split-icon="minus">
+        <li><a href="#login">Logout</a><a href="#login">Logout</a></li>
+    </ul>
+
+    <div data-role="footer">
+        <h4>iTime</h4>
+    </div>
+</div>
+<div data-role="page" id="topup">
+    <div data-role="header">
+        <h1>TOP UP</h1>
+    </div>
+    <div data-role="content">
+        <p>Follow this instructions to top up.</p>
+        <ol>
+            <li>Go to the M-PESA Menu</li>
+            <li>Select Lipa Na M-PESA</li>
+            <li>Select Buy Goods and services</li>
+            <li>Enter the Till Number 803586 </li>
+            <li>Follow subsequent prompts to complete the transactions. </li>
+            <li>Wait for like 30 seconds and your balance will be update.</li>
+        </ol>
+    </div>
+    <div data-role="footer">
+        <h4>iTime</h4>
+    </div>
+</div>
+<div data-role="page" id="sell">
+    <div data-role="header">
+        <h1>SELL CREDIT</h1>
+    </div>
+    <div data-role="content">
+        <form id="frm-sell-credit">
+            <div data-role="fieldcontain">
+                <label for="textinput">Phone Number: (Excluding 0 in beginning)</label> 
+                <input type="text" name="Phone" placeholder="725888888" id="txtSellPhone" value="" />
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput">Amount:</label>
+                <input type="text" name="Amount" id="txtSellAmount" value=""/>
+            </div>
+            <input type="hidden" name="UserId" class="userId" value=""/>
+            <input type="hidden" name="StatusId" value="1" />
+            <a href="#" id="sellcredit" data-role="button" data-icon="check">Send</a>
+        </form>
+    </div>
+    <div data-role="footer">
+        <h4>iTime</h4>
+    </div>
+</div>
+<div data-role="page" id="validate">
+    <div data-role="header">
+        <h1>Validate Phone</h1>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <label for="passwordinput">Enter the code sent to your Email:</label>
+            <input type="text" name="code" id="code" value=""/>
+            <a href="#" id="lnkValidate" data-transition="slide" data-role="button" data-icon="arrow-r">Send</a>
+            <a href="#login" data-role="none" id="lnkToLogin" data-transition="slide" data-role="button" data-icon="arrow-r"></a>
+        </div>
+    </div>
+    <div data-role="footer">
+        <h4>iTime</h4>
+    </div>
+</div>
+<div data-role="page" id="change-pin">
+    <div data-role="header">
+        <h1>Change Pin</h1>
+    </div>
+    <div data-role="content">
+        <form id="frm-change-pin">
+            <div data-role="fieldcontain">
+                <label for="textinput">Current PIN:</label>
+                <input type="password" name="OldPassword" id="txtcurrentpin" value="" />
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput">New PIN:</label>
+                <input type="password" name="NewPassword" id="txtnewpin" value="" />
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput">Confirm PIN:</label>
+                <input type="password" name="ConfirmPassword" id="txtconfirmnewpin" value=""/>
+            </div>
+            <input type="hidden" name="UserId" class="userId" />
+            <a href="#" id="changepin" data-role="button" data-icon="check">Submit</a>
+        </form>
+    </div>
+    <div data-role="footer">
+        <h4>iTime</h4>
+    </div>
+</div>
+<div data-role="page" id="register">
+    <div data-role="header">
+        <h1>Register</h1>
+    </div>
+    <div data-role="content">
+        <form id="decoy"></form>
+        <form id="registrationForm">
+            <div data-role="fieldcontain">
+                <label for="textinput">Surname:</label>
+                <input type="text" name="Surname" id="txtSurname" value=""/>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput">First Name:</label>
+                <input type="text" name="FirstName" id="txtFirstName" value=""/>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput">Last Name:</label>
+                <input type="text" name="LastName" id="txtLastName" value=""/>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput">Phone Number:</label>
+                <input type="text" name="PhoneNumber" id="LoginPhone" value=""/>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput">Email:</label>
+                <input type="text" name="Email" id="txtEmail" value=""/>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput">PIN:</label>
+                <input type="password" name="Password" id="txtpin" value=""/>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="textinput">Confirm PIN:</label>
+                <input type="password" name="ConfirmPassword" id="txtconfirmpin" value=""/>
+            </div>
+            <a href="#" id="lnkRegister" data-role="button" data-icon="check">Submit</a>
+            <a href="#validate" data-role="none" id="lnkTovalidate" data-transition="slide" data-role="button" data-icon="arrow-r"></a>
+        </form>
+    </div>
+    <div data-role="footer">
+        <h4>iTime</h4>
+    </div>
+</div>
+
+
+
+<div id="Dialog1">Your Account Balance is Ksh. 20,000</div>
+<div id="ErrorDialog">Error Message</div>
 </body>
 </html>
