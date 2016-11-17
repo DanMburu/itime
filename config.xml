@@ -19,9 +19,11 @@
 	
 	
 	<feature name="http://api.phonegap.com/1.0/network"/>
+	
 	<feature name="Notification">
         <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
    </feature>
+   <preference name="phonegap-version" value="3.7.0" /> 
     <preference name="orientation"      value="default" />
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
@@ -32,6 +34,6 @@
     <icon src="themes/images/icon-72.png"   gap:platform="android"    gap:density="hdpi" />
     <icon src="themes/images/icon-96.png"  gap:platform="android"    gap:density="xhdpi" />
 
-	
+	<gap:plugin name="org.apache.cordova.inappbrowser" />
 
 </widget>
