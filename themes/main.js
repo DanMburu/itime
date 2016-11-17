@@ -140,6 +140,8 @@ $('#getbalance').off('click').on('click', function() {
           showLoader();
 
           var url = $('#ROOTURL').val() + 'User/Login';
+		  alert(url);
+		  alert($('#frm-login').serialize());
           var data = $('#frm-login').serialize();
           $('#USERPHONE').val($('#LoginPhone').val());
           $.post(url, data).done(function(data) {
