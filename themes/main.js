@@ -78,7 +78,7 @@ $(document).on("pageshow", function () {
 	$('#forgotpin').off('click').on('click', function() {
 		
 		
-var phone = prompt("Enter your phone number");
+var phone = prompt("Enter your phone number in format 0722000111");
 
 if (phone != null) {
     var r = confirm("Generate a new PIN?");
@@ -207,8 +207,8 @@ $('#getbalance').off('click').on('click', function() {
             return false;
         }
        
-        if ($('#RegisterPhone').val().length < 12) {
-            alert("Please enter phone number in the format 254722000111.");
+        if ($('#RegisterPhone').val().length !==10) {
+            alert("Please enter phone number in the format 0722000111.");
             return false;
         }
 		var allFilled = true;
