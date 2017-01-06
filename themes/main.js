@@ -40,8 +40,8 @@ $(document).on("pageshow", function () {
 	
 	$('#sellcredit').off('click').on('click', function() {
    
-  if ($('#txtSellPhone').val().length < 9) {
-      alert("Please enter phone number in the format 722000111.");
+  if ($('#txtSellPhone').val().length !== 10) {
+      alert("Please enter phone number in the format 0725111222");
       return false;
   }
  if ($('#txtSellAmount').val().length < 2) {
