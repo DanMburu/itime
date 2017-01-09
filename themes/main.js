@@ -173,8 +173,8 @@ $('#getbalance').off('click').on('click', function() {
           $('#USERPHONE').val($('#LoginPhone').val());
           $.post(url, data).done(function(data) {
               if (data.trim().toLowerCase() === 'incorrect') {
-                  $("#ErrorDialog").html('Your PIN is incorrect.');
-                  $("#ErrorDialog").dialog("open");
+               
+                  alert('Your PIN is incorrect.');
               }
               else if (data.trim().toLowerCase() === 'validate-code') {
 					$('#lnkTovalidate').trigger('click');
@@ -192,9 +192,9 @@ $('#getbalance').off('click').on('click', function() {
               hideLoader();
           });
       } else {
-       
-          $("#ErrorDialog").html('All fields are required');
-          $("#ErrorDialog").dialog("open");
+       alert('All fields are required');
+         // $("#ErrorDialog").html('All fields are required');
+         // $("#ErrorDialog").dialog("open");
         }
   });	
 	$('#lnkRegister').off('click').on('click', function() {
@@ -224,8 +224,9 @@ $('#getbalance').off('click').on('click', function() {
 			var data = $('#registrationForm').serialize();
             $.post(url, data).done(function (data) {
                 if (data.trim() === 'taken') {
-                    $("#ErrorDialog").html('Phone number already registered');
-                    $("#ErrorDialog").dialog("open");
+                  //  $("#ErrorDialog").html('Phone number already registered');
+                  //  $("#ErrorDialog").dialog("open");
+                    alert('Phone number already registered');
                 } else {
                     $("#USERID").val(data.trim());
                     $('#USERPHONE').val($('#PhoneNumber').val());
@@ -237,8 +238,8 @@ $('#getbalance').off('click').on('click', function() {
 
                 hideLoader();
 			}).fail(function(data) {
-				$( "#ErrorDialog" ).html('Failed to submit your request. Check your internet connection');
-			     $( "#ErrorDialog" ).dialog("open");
+				
+			     alert('Failed to submit your request. Check your internet connection');
 			}).always(function() {
 				hideLoader();
 			});
