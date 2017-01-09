@@ -121,11 +121,13 @@ if (phone != null) {
         var data = $('#frm-change-pin').serialize();
         $.post(url, data).done(function(data) {
 			  if (data.trim().indexOf("Error") == -1){
-				   $( "#Dialog1" ).html(data);
-				   $( "#Dialog1" ).dialog("open");
+				 //  $( "#Dialog1" ).html(data);
+				  // $( "#Dialog1" ).dialog("open");
+				  alert(data);
 				}else{
-				 $( "#ErrorDialog" ).html(data);
-			     $( "#ErrorDialog" ).dialog("open");
+				// $( "#ErrorDialog" ).html(data);
+			     //$( "#ErrorDialog" ).dialog("open");
+			      alert(data);
 				}
 				hideLoader();
 			}).fail(function() {
