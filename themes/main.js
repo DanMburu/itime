@@ -62,8 +62,7 @@ $(document).on("pageshow", function () {
 				   $('#frm-sell-credit')[0].reset();
 				   
 				}else{
-				 $( "#ErrorDialog" ).html(data);
-			     $( "#ErrorDialog" ).dialog("open");
+				alert(data);
 			    
 				}
 				hideLoader();
@@ -93,8 +92,8 @@ if (phone != null) {
       }
         hideLoader();
       }).fail(function(data) {
-         $( "#ErrorDialog" ).html("Failed to send your request. Check your internet connection.");
-           $( "#ErrorDialog" ).dialog("open");
+       
+          alert("Failed to send your request. Check your internet connection.");
       }).always(function() {
         hideLoader();
       });
@@ -125,8 +124,7 @@ if (phone != null) {
 				  // $( "#Dialog1" ).dialog("open");
 				  alert(data);
 				}else{
-				// $( "#ErrorDialog" ).html(data);
-			     //$( "#ErrorDialog" ).dialog("open");
+				
 			      alert(data);
 				}
 				hideLoader();
@@ -195,8 +193,7 @@ $('#getbalance').off('click').on('click', function() {
           });
       } else {
        alert('All fields are required');
-         // $("#ErrorDialog").html('All fields are required');
-         // $("#ErrorDialog").dialog("open");
+      
         }
   });	
 	$('#lnkRegister').off('click').on('click', function() {
@@ -225,9 +222,7 @@ $('#getbalance').off('click').on('click', function() {
 			var url = $('#ROOTURL').val() + 'User/Register';
 			var data = $('#registrationForm').serialize();
             $.post(url, data).done(function (data) {
-                if (data.trim() === 'taken') {
-                  //  $("#ErrorDialog").html('Phone number already registered');
-                  //  $("#ErrorDialog").dialog("open");
+                if (data.trim() === 'taken') {                
                     alert('Phone number already registered');
                 } else {
                     $("#USERID").val(data.trim());
@@ -246,8 +241,8 @@ $('#getbalance').off('click').on('click', function() {
 				hideLoader();
 			});
 			 } else {
-				 $( "#ErrorDialog" ).html('All fields are required.');
-			     $( "#ErrorDialog" ).dialog("open");
+				
+			     alert('All fields are required.'));
           
             return;
         }
@@ -265,8 +260,7 @@ $(document).on("pageshow", "#validate", function() { // valiate
     $('#lnkValidate').off('click').on("click", function() {
         if ($('#code').val() == "") {
            
-			    $( "#ErrorDialog" ).html('Enter Validation Code.');
-			     $( "#ErrorDialog" ).dialog("open");
+			  alert('Enter Validation Code.');
             return false;
         }
         var url = $('#ROOTURL').val() + 'User/Validate/' + $('#USERPHONE').val() + '/' + $('#code').val();
@@ -276,8 +270,8 @@ $(document).on("pageshow", "#validate", function() { // valiate
         $.get(url, function(data) {
             hideLoader();
             if (data.trim().toLowerCase() === 'incorrect-code') {
-				 $( "#ErrorDialog" ).html('Incorrect code.');
-			     $( "#ErrorDialog" ).dialog("open");
+				
+			     alert('Incorrect code.');
                
             } else {
                 $("#USERID").val(data.trim());
