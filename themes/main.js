@@ -163,6 +163,10 @@ $('#getbalance').off('click').on('click', function() {
               allFilled = false;
           }
       });
+       if ($('#LoginPhone').val().length !==10) {
+            alert("Please enter phone number in the format 0722000111.");
+            return false;
+        }
 
       if (allFilled) {
           showLoader();
@@ -242,7 +246,7 @@ $('#getbalance').off('click').on('click', function() {
 			});
 			 } else {
 				
-			     alert('All fields are required.'));
+			     alert('All fields are required.');
           
             return;
         }
