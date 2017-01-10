@@ -48,7 +48,7 @@ $(document).on("pageshow", function () {
       alert("Minimun allowed credit is Ksh 10");
       return false;
   }
-    var r = confirm("Buy airtime for  "+$('#txtSellPhone').val()+", Ksh "+$('#txtSellAmount').val());
+    var r = confirm("Buy airtime for  "+ $("#OperatorId option:selected").text()+ " No. " +$('#txtSellPhone').val()+" Ksh "+$('#txtSellAmount').val());
     if (r == true) {
       
 			showLoader();
