@@ -12,10 +12,12 @@ function onDeviceReady() {
 
     if (firstrun === null || firstrun==='null') {
        // $.mobile.changePage( '#login', {type: "get", transition: "slide"});
+       $('firstrun').val('yes');
         populateDB();
     }
     else {
       //  $.mobile.changePage( '#dashboard', {type: "get", transition: "slide"});
+       $('firstrun').val('no');
         GetUserDetails();
     }
 
@@ -197,7 +199,10 @@ $('#getbalance').off('click').on('click', function() {
       if (allFilled) {
 
           showLoader();
-          SaveUserDetails();
+          if($('firstrun').val()==='no'){
+             SaveUserDetails();
+          }
+         
           var url = $('#ROOTURL').val() + 'User/Login';
 		 
           var data = $('#frm-login').serialize();
