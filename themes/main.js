@@ -199,9 +199,9 @@ $('#getbalance').off('click').on('click', function() {
       if (allFilled) {
 
           showLoader();
-          alert($('#firstrun').val());
+         
           if($('#firstrun').val()==='yes'){
-alert('fff');
+
              SaveUserDetails();
           }
          
