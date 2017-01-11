@@ -199,7 +199,7 @@ $('#getbalance').off('click').on('click', function() {
       if (allFilled) {
 
           showLoader();
-          if($('firstrun').val()==='no'){
+          if($('firstrun').val()==='yes'){
              SaveUserDetails();
           }
          
