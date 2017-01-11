@@ -1,3 +1,29 @@
+var db;
+var dbCreated = false;
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+
+
+    try{ db = window.openDatabase("Itime", "1.0", "PhoneGap Demo", 200000);} catch(err){}
+
+    var firstrun = window.localStorage.getItem("runned");
+
+    if (firstrun === null || firstrun==='null') {
+       // $.mobile.changePage( '#login', {type: "get", transition: "slide"});
+        populateDB();
+    }
+    else {
+      //  $.mobile.changePage( '#dashboard', {type: "get", transition: "slide"});
+        GetUserDetails();
+    }
+
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    var watchID = navigator.geolocation.watchPosition(onSuccess2, onError2, {timeout: 30000});
+
+} //onDeviceReady
+
 $(document).on("pageshow", "#landing", function () { // When entering pagetwo
     showLoader();
     setTimeout(function () {
@@ -169,8 +195,9 @@ $('#getbalance').off('click').on('click', function() {
         }
 
       if (allFilled) {
-          showLoader();
 
+          showLoader();
+          SaveUserDetails();
           var url = $('#ROOTURL').val() + 'User/Login';
 		 
           var data = $('#frm-login').serialize();
@@ -330,4 +357,78 @@ function showLoader() {
 
 function hideLoader() {
     $.mobile.loading("hide");
+}
+
+
+function populateDB(data) {
+
+//Create Table
+    db.transaction(
+        function (tx) {
+
+//Create user table
+
+            var sql = "DROP TABLE IF EXISTS fd_users";
+            tx.executeSql(sql);
+            sql = " CREATE TABLE IF NOT EXISTS fd_users ( " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +             
+                "PhoneNumber VARCHAR(200), " +
+                "UserId INTEGER(20))";
+            tx.executeSql(sql);
+        },
+        function (error) {
+           
+            alert('An error has occured.'+error);
+        }
+    );
+
+
+}
+function GetUserDetails() {
+
+    db.transaction(function (transaction) {
+        transaction.executeSql("SELECT * FROM fd_users", [],
+            function (tx, result) { // On Success
+                var len = result.rows.length;
+                var row = result.rows.item(0);
+                 $('#LoginPhone').val(row.PhoneNumber);             
+                $.mobile.changePage( '#landing', {
+                    type: "get",
+                    transition: "slide"
+                });
+                setTimeout(function () {
+                    startChat();
+
+                }, 1000);
+            },
+            function (error) { // On error
+                var err=JSON.stringify(error, null, 4);
+              alert(err);
+            });
+
+    }); //transaction
+
+} // GetUserDetails
+
+function transaction_error(tx, error) {
+ 
+    alert("Database Error: " + error);
+}
+
+function SaveUserDetails() {
+
+
+    var sql = "insert into fd_users(UserId,PhoneNumber) values('user','" + $('#LoginPhone').val() + "')";
+    db.transaction(
+        function (tx) {
+            tx.executeSql(sql);
+            window.localStorage.setItem("runned", "1");
+
+        },
+        function (error) {
+            console.log(error);
+            var err=JSON.stringify(error, null, 4);
+            alert(err + 'An error has occured. Please try again and check your internet connection');
+        }
+    );
 }
