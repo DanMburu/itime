@@ -12,12 +12,12 @@ function onDeviceReady() {
 
     if (firstrun === null || firstrun==='null') {
        // $.mobile.changePage( '#login', {type: "get", transition: "slide"});
-       $('firstrun').val('yes');
+       $('#firstrun').val('yes');
         populateDB();
     }
     else {
       //  $.mobile.changePage( '#dashboard', {type: "get", transition: "slide"});
-       $('firstrun').val('no');
+       $('#firstrun').val('no');
         GetUserDetails();
     }
 
@@ -199,7 +199,9 @@ $('#getbalance').off('click').on('click', function() {
       if (allFilled) {
 
           showLoader();
-          if($('firstrun').val()==='yes'){
+          alert($('#firstrun').val());
+          if($('#firstrun').val()==='yes'){
+alert('fff');
              SaveUserDetails();
           }
          
