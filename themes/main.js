@@ -120,7 +120,6 @@ if (phone != null) {
       }
         hideLoader();
       }).fail(function(data) {
-       
           alert("Failed to send your request. Check your internet connection.");
       }).always(function() {
         hideLoader();
@@ -274,7 +273,7 @@ $('#getbalance').off('click').on('click', function() {
                 hideLoader();
 			}).fail(function(data) {
 				
-			     alert('Failed to submit your request. Check your internet connection');
+			     alert('Failed to submit your request. Check your internet connection'+JSON.stringify(error));
 			}).always(function() {
 				hideLoader();
 			});
