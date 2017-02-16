@@ -47,13 +47,13 @@ $(document).on("pageshow", function () {
  
   $('#launch').off('click').on('click', function() {
     alet('here');
-             window.startapp.start(
+      /* window.startapp.start(
           {
               android: 'com.android.stk',
              // ios: 'myURL'
           },
           successCallback, failureCallback
-      );
+      );*/
     }); 
 function onSuccess2(data) {
    alert(data);
