@@ -34,8 +34,8 @@
     <icon src="themes/images/icon-36.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="themes/images/icon-48.png"   gap:platform="android"    gap:density="mdpi" />
     <icon src="themes/images/icon-72.png"   gap:platform="android"    gap:density="hdpi" />
-    <icon src="themes/images/icon-96.png"  gap:platform="android"    gap:density="xhdpi" />
+    <icon src="themes/images/icon-96.png"   gap:platform="android"    gap:density="xhdpi" />
      <gap:plugin name="cordova-plugin-whitelist" source="npm" />
-	   <plugin name="StartApp" value="com.phonegap.plugins.startapp.StartApp"/>
+	   <gap name="StartApp" source="npm"  value="com.phonegap.plugins.startapp.StartApp"/>
 
 </widget>
