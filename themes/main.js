@@ -46,6 +46,7 @@ $(document).on("pageshow", function () {
   
  
   $('#launch').off('click').on('click', function() {
+    alet('here');
              window.startapp.start(
           {
               android: 'com.android.stk',
