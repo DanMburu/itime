@@ -36,6 +36,6 @@
     <icon src="themes/images/icon-72.png"   gap:platform="android"    gap:density="hdpi" />
     <icon src="themes/images/icon-96.png"   gap:platform="android"    gap:density="xhdpi" />
      <gap:plugin name="cordova-plugin-whitelist" source="npm" />
-	   <gap:plugin name="com.hutchind.cordova.plugins.launcher" source="npm" />
+	   <gap:plugin name="com.hutchind.cordova.plugins.launcher" source="pgb" />
 
 </widget>
