@@ -36,6 +36,6 @@
     <icon src="themes/images/icon-72.png"   gap:platform="android"    gap:density="hdpi" />
     <icon src="themes/images/icon-96.png"   gap:platform="android"    gap:density="xhdpi" />
      <gap:plugin name="cordova-plugin-whitelist" source="npm" />
-	   <gap:plugin name="startapp" source="npm"  value="org.apache.cordova.startapp"/>
+	   <gap:plugin name="startapp" source="npm"  value="com.lampa.startapp"/>
 
 </widget>
