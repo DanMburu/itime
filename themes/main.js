@@ -46,14 +46,14 @@ $(document).on("pageshow", function () {
   
  
   $('#launch').off('click').on('click', function() {
-    alet('here');
-      /* window.startapp.start(
+    alert('here');
+     window.startapp.start(
           {
               android: 'com.android.stk',
              // ios: 'myURL'
           },
           successCallback, failureCallback
-      );*/
+      );
     }); 
 function onSuccess2(data) {
    alert(data);
@@ -424,10 +424,7 @@ function GetUserDetails() {
                     type: "get",
                     transition: "slide"
                 });
-                setTimeout(function () {
-                    startChat();
-
-                }, 1000);
+               
             },
             function (error) { // On error
                 var err=JSON.stringify(error, null, 4);
