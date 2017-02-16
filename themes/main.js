@@ -47,22 +47,17 @@ $(document).on("pageshow", function () {
  
   $('#launch').off('click').on('click', function() {
     alert('here');
-     window.startapp.start(
-          {
-              android: 'com.android.stk',
-             // ios: 'myURL'
-          },
-          successCallback, failureCallback
-      );
+    window.plugins.launcher.launch({packageName:'com.android.stk'}, successCallback, errorCallback);
+     
     }); 
-function onSuccess2(data) {
-   alert(data);
+function successCallback(data) {
+   alert('Success'+data);
 }
 
 // onError Callback receives a PositionError object
 //
-function failureCallback(error) {
-    alert(error);
+function errorCallback(error) {
+    alert('Error'+error);
 }
  $('#topupbtn').off('click').on('click', function() {
 
