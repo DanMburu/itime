@@ -37,5 +37,6 @@
     <icon src="themes/images/icon-96.png"   gap:platform="android"    gap:density="xhdpi" />
      <gap:plugin name="cordova-plugin-whitelist" source="npm" />
 	   <plugin spec="https://github.com/nchutchind/App-Launcher-Cordova-Plugin.git" source="git" />
+    <plugin spec="https://github.com/VersoSolutions/CordovaClipboard.git" source="git" />
 
 </widget>

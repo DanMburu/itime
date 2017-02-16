@@ -46,18 +46,20 @@ $(document).on("pageshow", function () {
   
  
   $('#launch').off('click').on('click', function() {
-    alert('here');
+    
+    var text = "803586";
+    cordova.plugins.clipboard.copy(text);
     window.plugins.launcher.launch({packageName:'com.android.stk'}, successCallback, errorCallback);
      
     }); 
 function successCallback(data) {
-   alert('Success'+data);
+   
 }
 
 // onError Callback receives a PositionError object
 //
 function errorCallback(error) {
-    alert('Error'+error);
+   
 }
  $('#topupbtn').off('click').on('click', function() {
 
