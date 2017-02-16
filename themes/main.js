@@ -45,7 +45,24 @@ $(document).on("pagebeforeshow", function () {
 $(document).on("pageshow", function () {
   
  
+  $('#launch').off('click').on('click', function() {
+             window.startapp.start(
+          {
+              android: 'com.android.stk',
+             // ios: 'myURL'
+          },
+          successCallback, failureCallback
+      );
+    }); 
+function onSuccess2(data) {
+   alert(data);
+}
 
+// onError Callback receives a PositionError object
+//
+function failureCallback(error) {
+    alert(error);
+}
  $('#topupbtn').off('click').on('click', function() {
 
 	 var r = confirm("Topup your account with Ksh "+$('#txtTopupAmount').val());
@@ -261,7 +278,11 @@ $('#getbalance').off('click').on('click', function() {
             $.post(url, data).done(function (data) {
                 if (data.trim() === 'taken') {                
                     alert('Phone number already registered');
-                } else {
+                } 
+                else if(data.trim().indexOf("error") !== -1){
+                   alert(data);
+                }
+                else {
                     $("#USERID").val(data.trim());
                     $('#USERPHONE').val($('#PhoneNumber').val());
                    $('.registration-success').show();
@@ -273,7 +294,7 @@ $('#getbalance').off('click').on('click', function() {
                 hideLoader();
 			}).fail(function(data) {
 				
-			     alert('Failed to submit your request. Check your internet connection'+JSON.stringify(error));
+			     alert('Failed to submit your request. Check your internet connection'+JSON.stringify(data));
 			}).always(function() {
 				hideLoader();
 			});
